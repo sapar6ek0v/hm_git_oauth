@@ -4,9 +4,9 @@ import UserPage from "../components/UserPage.js";
 import Cookies from 'js-cookie'
 import {StyledMain} from "./styles/Main.styled.js";
 
-'http://localhost:8000/api/github'
+
 const GITHUB_CLIENT_ID = "8d63da21532797856434"
-const gitHubRedirectURL = "https://hm-githum-oauth.herokuapp.com"
+const gitHubRedirectURL = "http://localhost:8000/api/github"
 const path = '/'
 
 const Main = () => {
