@@ -58,7 +58,7 @@ server.get('/api/github', async (req, res) => {
         maxAge: 1000 * 60 * 60 * 2
     })
 
-    res.redirect(`http://localhost:3000${path}`)
+    res.redirect(`https://hm-githum-oauth.herokuapp.com${path}`)
 })
 
 server.get('/api/about-user', (req, res) => {
