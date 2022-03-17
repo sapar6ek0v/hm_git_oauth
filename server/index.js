@@ -46,7 +46,7 @@ server.get('/api/github', async (req, res) => {
     const {path} = req.query
 
     if (!code) {
-        console.log("No code!");
+        return res.status(401).json({message: "No code!"});
     }
 
     const githubUser = await getUser({code})
