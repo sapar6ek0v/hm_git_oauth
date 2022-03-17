@@ -3,11 +3,10 @@ import axios from "axios";
 import UserPage from "../components/UserPage.js";
 import Cookies from 'js-cookie'
 import {StyledMain} from "./styles/Main.styled.js";
-import Loader from "../components/Loader.js";
 
 
 const GITHUB_CLIENT_ID = "8d63da21532797856434"
-const gitHubRedirectURL = "http://localhost:8000/api/github"
+const gitHubRedirectURL = "https://hm-githum-oauth.herokuapp.com"
 const path = '/'
 
 const Main = () => {
