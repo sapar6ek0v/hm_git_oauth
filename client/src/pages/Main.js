@@ -13,7 +13,6 @@ const path = '/'
 const Main = () => {
     const [user, setUser] = useState({})
     const [auth, setAuth] = useState(!!Cookies.get('token'))
-    const [loading, setLoading] = useState(true)
 
 
     useEffect(() => {
@@ -25,11 +24,9 @@ const Main = () => {
                 .then(({data}) => data);
             setUser(userData.data)
             setAuth(userData.token)
-            setLoading(false)
         })();
     }, [])
 
-    if (loading) return <Loader />
 
     return (
         <StyledMain>
