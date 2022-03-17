@@ -1,30 +1,28 @@
 import React from 'react';
 import ReactMarkdown from "react-markdown";
+import notFound from '../images/notFound.png'
+import Container from "./Container.js";
+import {Wrapper} from "./styles/ReposCard.styled.js";
 
-const ReposCard = ({readmeMD, languages, repos}) => {
+const ReposCard = ({readmeMD,repos}) => {
     return (
-        <div>
-            <div>
-                {
-                    readmeMD ? <ReactMarkdown >
-                            {readmeMD}
-                        </ReactMarkdown>
-                        : <img src='' alt=""/>
-                }
-            </div>
-            <div>
-                <h3>{repos.full_name}</h3>
-                <p>{repos.visibility}</p>
-                <div>{repos.description || '-'}</div>
-                <div>
+        <Container>
+            <Wrapper>
+                <div className='repos_readme'>
                     {
-                        Object.keys(languages).map(it => {
-                            return <div>{it}:{(+languages[it])}</div>
-                        })
+                        readmeMD ? <ReactMarkdown >
+                                {readmeMD}
+                            </ReactMarkdown>
+                            : <img src={notFound} alt="not-found"/>
                     }
                 </div>
-            </div>
-        </div>
+                <div>
+                    <p>{repos.full_name}</p>
+                    <p>{repos.visibility}</p>
+                    <p>{repos.description || 'no description'}</p>
+                </div>
+            </Wrapper>
+        </Container>
     );
 };
 

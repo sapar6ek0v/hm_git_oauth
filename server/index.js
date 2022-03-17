@@ -64,15 +64,20 @@ server.get('/api/github', async (req, res) => {
 server.get('/api/about-user', (req, res) => {
     const cookie = req.cookies[process.env.COOKIE_NAME];
 
-    try {
-        const decoded = jwt.verify(cookie, process.env.SECRET_KEY )
+    if (!cookie) return res.status(401).json({message: "Пользователь не авторизован!"})
 
-        return res.send(decoded)
+    try {
+        const decoded = jwt.verify(cookie, process.env.SECRET_KEY)
+
+        return res.json({
+            message: "Пользователь  авторизован!",
+            data: decoded,
+            token: cookie
+        })
     } catch (e) {
-        return res.send(e)
+        return res.status(401).json(e)
     }
 })
-
 
 
 if (process.env.NODE_ENV === 'production') {

@@ -1,12 +1,21 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {StyledHeader} from "./styles/Header.styled.js";
+import Container from "./Container.js";
 
 const Header = () => {
+    const navigate = useNavigate()
+
+
     return (
-        <div>
-            <NavLink to='/'>Home</NavLink>
-            <NavLink to='/search_users'>Another Users</NavLink>
-        </div>
+        <StyledHeader>
+            <Container>
+                <div className="header">
+                    <button onClick={() => navigate('/')}>Home</button>
+                    <button onClick={() => navigate('/search_users')}>Another Users</button>
+                </div>
+            </Container>
+        </StyledHeader>
     );
 };
 
